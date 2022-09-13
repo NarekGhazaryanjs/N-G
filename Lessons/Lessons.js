@@ -17,7 +17,7 @@
      window.addEventListener(`resize `, resizeCanvas);
   
     const cfg ={
-      bgFillColor : `rgba(50,50,50,.05)`,
+      bgFillColor : `rgba(0, 8, 55, .05)`,
       dirsCount : 6,
       stepsToTourn : 20,
       dotSize :2,
@@ -38,7 +38,7 @@
   
   
      function drawRect(color , x , y , w,h , shadowColor,shadowBlur){
-      ctx.shadowColor = shadowColor || `black`
+      ctx.shadowColor =  `rgba(0, 8, 55, .05)`
       ctx.shadowBlur = shadowBlur ||  1
       ctx.fillStyle = color
       ctx.fillRect(x,y,w,h)
@@ -54,7 +54,7 @@
   
       redrawDot(){
           let blur = 4;
-          let color = `red`;
+          let color = `aqua`;
           let size = cfg.dotSize;
   
           let x = this.pos.x - size/2
