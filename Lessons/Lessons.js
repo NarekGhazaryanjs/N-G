@@ -17,7 +17,7 @@
 
     const cfg = {
         bgFillColor: `rgba(0, 8, 55, .05)`,
-        dirsCount: 6,
+        dirsCount: 9,
         stepsToTourn: 20,
         dotSize: 2,
         dotsCount: 800,
@@ -27,7 +27,7 @@
 
     document.body.append(cnv)
 
-    function drawRect(color, x, y, w, h, shadowColor, shadowBlur) {
+    function drawRect(color, x, y, w, h, shadowBlur) {
         ctx.shadowColor = `rgba(0, 8, 55, .05)`
         ctx.shadowBlur = shadowBlur || 1
         ctx.fillStyle = color

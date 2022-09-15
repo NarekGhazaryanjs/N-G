@@ -63,9 +63,13 @@ header nav a {
 }
 
 
+main {
+    margin-top: 10vh;
+}
 
 
-@media screen and (max-width: 920px) {
+
+@media screen and (max-width: 768px) {
 
     header {
         display: flex;
@@ -79,6 +83,11 @@ header nav a {
         flex-direction: column;
         justify-content: space-evenly;
         height: 80%;
+    }
+
+
+    main {
+        margin-top: 40vh;
     }
 
   
@@ -106,3 +115,5 @@ header nav a {
 
     
 }
+
+

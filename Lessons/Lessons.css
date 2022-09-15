@@ -1,0 +1,29 @@
+main {
+    font-weight: bold;
+    font-size: 2rem;
+    color: white
+}
+
+
+main nav {
+    width: 20%;
+    height: 90vh;
+    position: fixed;
+    left: 0;
+}
+
+
+main .lesson-container-details-block {
+    margin-left: 25%;
+    width: 70%;
+    filter: hue-rotate(-0.25turn);
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    opacity: 0.5;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: cursive;
+}
+
