@@ -10,6 +10,10 @@ main nav {
     height: 90vh;
     position: fixed;
     left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
 
 
@@ -25,5 +29,20 @@ main .lesson-container-details-block {
     font-size: 2rem;
     font-weight: bold;
     font-family: cursive;
+    height: 89vh;
 }
+
+.main-navigation-list-items{
+    margin-top: 15%;
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 16px;
+    filter: hue-rotate(-0.25turn);
+    background-color: black;
+    opacity: 0.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 

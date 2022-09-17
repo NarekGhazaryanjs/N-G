@@ -15,7 +15,7 @@ randomcolor();
         proparties = {
             bgColor: 'rgb(0, 8, 55)',
             particleRadius: 1,
-            particaleCount: 150,
+            particaleCount: 250,
             particaleMaxVelocity: 0.3,
             linelength: 120,
 

@@ -42,7 +42,6 @@
             };
             this.dir = (Math.random() * 3 | 0) * 2;
             this.step = 0
-
         }
 
         redrawDot() {
@@ -124,3 +123,23 @@
 
 
 })()
+
+
+let lessonsObjectInformation = {
+   Web: `Hello World`,
+   SMM: `hello smm`,
+   HR: `hello hr`,
+   Graphic_Design:`hello graph`,
+   English:`hello english`,
+   QA:`hello qa`,
+}
+
+let titleText = Array.from(document.getElementsByClassName(`main-navigation-list-items`))
+
+titleText.map(el => {
+    el.addEventListener(`click`,()=>{
+        let lessonDetailsBlock = document.querySelector(`.lesson-container-details-block`)
+        lessonDetailsBlock.innerText = `${lessonsObjectInformation[el.innerText]}`
+    }
+    )
+})
