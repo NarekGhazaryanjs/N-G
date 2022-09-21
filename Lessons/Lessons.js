@@ -126,20 +126,43 @@
 
 
 let lessonsObjectInformation = {
-   Web: `Hello World`,
-   SMM: `hello smm`,
-   HR: `hello hr`,
-   Graphic_Design:`hello graph`,
-   English:`hello english`,
-   QA:`hello qa`,
+    Web: `  
+            <details>
+              <summary> Frontend  դասընթացներ  </summary>  
+              <p> some Frontend  դասընթացներ </p>
+            </details> `,
+    SMM: `  
+            <details>
+              <summary> SMM  դասընթացներ  </summary>  
+              <p> some SMM  դասընթացներ </p>
+            </details> `,
+    HR: `   
+            <details>
+              <summary> HR  դասընթացներ  </summary>  
+              <p> some HR  դասընթացներ </p>
+            </details> `,
+    Graphic_Design: `
+            <details>
+              <summary> Graphic_Design  դասընթացներ  </summary>  
+              <p> some Graphic_Design  դասընթացներ </p>
+            </details> `,
+    English: ` 
+            <details>
+              <summary> Անգլերեն լեզվի դասընթացներ  </summary>  
+              <p> some text </p>
+            </details> `,
+    QA: `   
+            <details>
+              <summary> QA  դասընթացներ  </summary>  
+              <p> some qa text </p>
+            </details> `,
 }
 
 let titleText = Array.from(document.getElementsByClassName(`main-navigation-list-items`))
 
 titleText.map(el => {
-    el.addEventListener(`click`,()=>{
+    el.addEventListener(`click`, () => {
         let lessonDetailsBlock = document.querySelector(`.lesson-container-details-block`)
-        lessonDetailsBlock.innerText = `${lessonsObjectInformation[el.innerText]}`
-    }
-    )
+        lessonDetailsBlock.innerHTML = lessonsObjectInformation[el.innerText]
+    })
 })

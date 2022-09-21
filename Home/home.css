@@ -27,7 +27,6 @@ main div {
 
 @media screen and (max-width: 768px) {
     main {
-        margin-top: 40vh;
         flex-direction: column;
     }
     main div {
