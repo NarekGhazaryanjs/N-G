@@ -25,11 +25,27 @@ main .lesson-container-details-block {
     display: flex;
     justify-content: center;
     padding: 2rem;
-    opacity: 0.5;
+    opacity: 0.8;
     font-size: 2rem;
     font-weight: bold;
     font-family: cursive;
-    height: 89vh;
+}
+
+.lesson-container-details-block  div, .lesson-container-details-block ol  {
+    width: 80%;
+    margin-left: 10%;
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+
+.lesson-container-details-block ol  li {
+    padding: 6px
+}
+
+.lesson-container-details-block summary {
+    text-align: center;
 }
 
 .main-navigation-list-items{
@@ -49,15 +65,25 @@ main .lesson-container-details-block {
 @media screen and (max-width: 768px) {
     main {
         display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     main nav {
         position: static;
-        
+        width: 4%;
     }
 
-    main nav, main .lesson-container-details-block   {
-        width: 50%;
-        margin: 0 10px;
+    main .lesson-container-details-block {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 1.5rem;
+        margin: 0;
+    }
+
+    .lesson-container-details-block ol  {
+        display: flex;
+        flex-wrap: wrap;
     }
 }

@@ -128,8 +128,98 @@
 let lessonsObjectInformation = {
     Web: `  
             <details>
-              <summary> Frontend  դասընթացներ  </summary>  
-              <p> some Frontend  դասընթացներ </p>
+                <summary> Frontend  դասընթացներ  </summary>  
+                <div style="align-items: center">
+                    
+                    <img width='50px' src='../Home/Images/N2G.jpg' /> 
+                     <br /> 
+                      <h2 style='text-align: center', width: 100%> N2G Brains  </h2>
+                     <br />
+                </div>
+                <div>
+                     Այստեղ դուք կարող եք ծանոթանալ մեր կազմակերպության 
+                     կողմից անց կացվող բոլոր դասընթացներին: Տեղեկություն գտնել
+                     դասընթացների ծրագրերի մասին, ծանոթանալ մեր դասախոսների հետ,
+                     որոնցից յուրաքանչյուրն հանդիսանում է իր գործի գիտակ:
+                </div>
+           
+
+             <div>
+                Frontend Web Programming Cource a-z 
+             </div>
+             <div>
+                Այս դասընթացի շրջանակներում դուք կսովորեք Frontend վեբ
+                ծրագրավորում՝ որը նախատեսված է վեբ կայքերի դիմային հատվածի
+                պատրաստման համար:
+                Այս կուրսի ընթացքում լինելու են ինչպես տեսական այնպես էլ
+                պրակտիկ բազում աշխատանքներ, որի վերջնական արդյունքում դուք
+                կուենանք 10+ պատրաստի կայքեր, ինչպես նաև խաղեր՝ Ձեր սեփական
+                պորտֆոլիոի համար, ինչն էլ հետագայում բավական մեծ դեր է խաղում
+                գործի ընդունվելու հարցում:
+             </div>
+                  
+
+            <div>  
+               Դասընթացի մանրամասներ 
+            </div>
+
+            <div>  
+               Առաջին փուլ 2 ամիս 
+            </div>
+            
+              
+             
+             <ol> 
+               <li>  HTML5 </li>
+               <li>  CSS3 </li>
+               <li>  BOOTSTRAP </li>
+               <li>  SASS </li>
+               <li>  SCSS </li>
+             </ol>
+              
+                 
+                 
+                 
+             <div>  
+                Երկրորդ փուլ 2 ամիս  
+             </div>
+            
+              
+             
+             <ol> 
+               <li> JAVASCRIPT ADVANCE  </li>
+               <li> Axios  </li>
+               <li> Lodash  </li>
+               <li> Big O Notation  </li>
+             </ol>
+
+             <div>  
+               Երրորդ փուլ 2 ամիս  
+             </div>
+         
+           
+          
+          <ol> 
+            <li> JAVASCRIPT ADVANCE  </li>
+            <li> REACT  </li>
+            <li> RECOIL  </li>
+            <li> REDUX  </li>
+            <li> GIT  </li>
+          </ol>
+                 
+              
+
+                  
+              
+            
+                  
+            
+                      
+                      
+                      
+                      
+                      
+              </div>
             </details> `,
     SMM: `  
             <details>
@@ -166,3 +256,6 @@ titleText.map(el => {
         lessonDetailsBlock.innerHTML = lessonsObjectInformation[el.innerText]
     })
 })
+
+
+
