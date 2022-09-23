@@ -40,7 +40,7 @@
                 x: cx,
                 y: cy
             };
-            this.dir = (Math.random() * 3 | 0) * 2;
+            this.dir = (Math.random() * 5 | 0) * 2;
             this.step = 0
         }
 

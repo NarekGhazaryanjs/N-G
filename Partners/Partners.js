@@ -1,120 +1,104 @@
-(() => {
-    const cnv = document.createElement(`canvas`)
-    const ctx = cnv.getContext(`2d`)
+// DOM selectors 
+const stars = document.getElementById('stars'); 
+const starsCtx = stars.getContext('2d'); 
+ 
+// global variables 
+let screen, starsElements, starsParams = { speed: 0.7, number: 1000, extinction: 3 }; 
+ 
+// run stars 
+setupStars(); 
+updateStars(); 
+ 
 
-    let cw, ch, cx, cy;
+ 
+// update stars on resize to keep them centered 
+window.onresize = function() { 
+    setupStars(); 
+}; 
+ 
+// star constructor 
+function Star() { 
+    this.x = Math.random() * stars.width; 
+    this.y = Math.random() * stars.height; 
+    this.z = Math.random() * stars.width; 
+ 
+    this.move = function() { 
+        this.z -= starsParams.speed; 
+        if (this.z <= 0) { 
+            this.z = stars.width; 
+        } 
+    }; 
+ 
+    this.show = function() { 
+        let x, y, rad, opacity; 
+        x = (this.x - screen.c[0]) * (stars.width / this.z); 
+        x = x + screen.c[0]; 
+        y = (this.y - screen.c[1]) * (stars.width / this.z); 
+        y = y + screen.c[1]; 
+        rad = stars.width / this.z; 
+        opacity = (rad > starsParams.extinction) ? 1.5 * (2 - rad / starsParams.extinction) : 1; 
+ 
+        starsCtx.beginPath(); 
+        starsCtx.fillStyle = "rgba(21, 200, 206, " + opacity + ")"; 
+        starsCtx.arc(x, y, rad, 0, Math.PI * 0.7); 
+        starsCtx.fill(); 
+    } 
+} 
+ 
+// setup <canvas>, create all the starts 
+function setupStars() { 
+    screen = { 
+        w: window.innerWidth, 
+        h: window.innerHeight, 
+        c: [ window.innerWidth, window.innerHeight] 
+    }; 
+    window.cancelAnimationFrame(updateStars); 
+    stars.width = screen.w; 
+    stars.height = screen.h; 
+    starsElements = []; 
+    for (let i = 0; i < starsParams.number; i++) { 
+        starsElements[i] = new Star(); 
+    } 
+} 
+ 
+// redraw the frame 
+function updateStars() { 
+    starsCtx.fillStyle = "rgb(0,8,55)"; 
+    starsCtx.fillRect(0, 0, stars.width, stars.height); 
+    starsElements.forEach(function (s) { 
+        s.show(); 
+        s.move(); 
+    }); 
+    window.requestAnimationFrame(updateStars); 
+}
 
-    function resizeCanvas() {
-        cw = cnv.width = innerWidth;
-        ch = cnv.height = innerHeight;
-        cx = cw / 2;
-        cy = ch / 2;
+
+
+const partnersArray = [
+    {
+        name: 'Sharp Brains',
+        url: 'https://sharpbrains.com/'
+    },
+
+    {
+        name: 'Think Engineering',
+        url: 'Ithink.am'
+    },
+
+    {
+        name: 'Narf',
+        url: 'facebook.com'
     }
+]
 
+const partnersBlock = document.querySelector('main section');
 
-    resizeCanvas()
-    window.addEventListener(`resize `, resizeCanvas);
-
-    const cfg = {
-        bgFillColor: `rgba(0, 8, 55, .05)`,
-        dirsCount: 6,
-        stepsToTourn: 20,
-        dotSize: 2,
-        dotsCount: 800,
-        dotVelocity: 2,
-        distance: 200,
-    }
-
-    document.body.append(cnv)
-
-    function drawRect(color, x, y, w, h, shadowBlur) {
-        ctx.shadowColor = `rgba(0, 8, 55, .05)`
-        ctx.shadowBlur = shadowBlur || 1
-        ctx.fillStyle = color
-        ctx.fillRect(x, y, w, h)
-    }
-
-    class Dot {
-        constructor() {
-            this.pos = {
-                x: cx,
-                y: cy
-            };
-            this.dir = (Math.random() * 3 | 0) * 2;
-            this.step = 0
-        }
-
-        redrawDot() {
-            let blur = 4;
-            let color = `aqua`;
-            let size = cfg.dotSize;
-
-            let x = this.pos.x - size / 2
-            let y = this.pos.y - size / 2
-
-
-            drawRect(color, x, y, size, size, color, blur)
-        }
-        moveDot() {
-            this.step++
-            this.pos.x += dirsList[this.dir].x * cfg.dotVelocity;
-            this.pos.y += dirsList[this.dir].y * cfg.dotVelocity;
-        }
-
-        changeDir() {
-            if (this.step % cfg.stepsToTourn === 0) {
-                this.dir = Math.random() > .5 ? (this.dir + 1) % cfg.dirsCount : (this.dir + cfg.dirsCount - 1) % cfg.dirsCount;
-            }
-        }
-        killDot(id) {
-            let percent = Math.random() * Math.exp(this.step / cfg.distance);
-            if (percent > 100) {
-                dotsList.splice(id, 1)
-            }
-        }
-    }
-
-    let dirsList = []
-
-    function createDiros() {
-        for (let i = 0; i < 360; i += 360 / cfg.dirsCount) {
-            let x = Math.cos(i * Math.PI / 180);
-            let y = Math.sin(i * Math.PI / 180);
-            dirsList.push({
-                x: x,
-                y: y
-            });
-        }
-    }
-    createDiros()
-
-
-    let dotsList = []
-
-    function addDot() {
-        if (dotsList.length < cfg.dotsCount && Math.random() > .8) {
-            dotsList.push(new Dot())
-        }
-    }
-
-    function refreshDots() {
-        dotsList.forEach((i, id) => {
-            i.moveDot();
-            i.redrawDot();
-            i.changeDir();
-            i.killDot(id);
-        })
-    }
-
-    function loop() {
-        drawRect(cfg.bgFillColor, 0, 0, cw, ch)
-        addDot()
-        refreshDots()
-
-
-        requestAnimationFrame(loop)
-    }
-    loop()
-
-
-})()
+partnersArray.map(partner => {
+    const partnerBlock = document.createElement('div');
+    const partnerUrl = document.createElement('a');
+    partnerUrl.innerText = partner.name
+    partnerUrl.href = partner.url;
+    partnerUrl.target = '_blank';
+    partnerBlock.append(partnerUrl);
+    partnersBlock.append(partnerBlock)
+})
